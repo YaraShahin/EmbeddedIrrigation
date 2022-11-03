@@ -30,4 +30,4 @@ Then, the amount of irrigations needed per day, along with the current tempratur
 | Buzzer             |           5           |          5         |
 
 ## Schematic diagram
-  
+  <img align="right" width="1200" height="400" src="/media/EmbeddedIrrigationFun.png">
