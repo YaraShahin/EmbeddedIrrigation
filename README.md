@@ -75,7 +75,7 @@ Total Cost: 212 EGP
 | Buzzer             |           5           |          5         |
 
 ## Video Demo
-The video demo can be found on: 
+The video demo can be found at: https://drive.google.com/file/d/1ATuG1tQZMa_KHwsERBIh5QhZrqEs1mak/view?usp=sharing
 
 ## Schematic diagram
   <img align="center" width="900" height="300" src="/media/EmbeddedIrrigationFun.png">
