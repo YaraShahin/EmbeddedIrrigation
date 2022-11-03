@@ -18,21 +18,24 @@ void Uart_Init(void) {
     /* Enable USART transmitter/receiver */
     UCSR0B = (1 << TXEN0) | (1 << RXEN0);
 
-    /* 8 data bits, 1 stop bit */
+    /* frame format: 8 data bits, async mode: 1 stop bit */
     UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 }
 
 void Uart_SetBaudRate(unsigned short BuadRate)
 {
+    //baud rate equation with respect to the clock frequency of uno (16MHz)
     unsigned short UBBR = ( (F_CPU / 16) /  BuadRate ) - 1;
+    ////to write the first 8 bits of the 12 bit number ubrr into the 8-bit register UBRR0L
     UBRR0L = (UBBR & 0xFF);
+    //to write the last 4 bits of the 12 bit number ubrr into the other 8-bit register UBRR0H
     UBRR0H = (( UBBR >> 8 ) & 0xFF);
 }
 
 
 void Uart_SendChar(unsigned char DataByte)
 {
-    // Wait until Write buffer is empty
+    // Wait until Write buffer is empty (1: empty)
     while ( ! (UCSR0A & ( 1 << UDRE0)) );
     UDR0 = DataByte;
 }
@@ -43,6 +46,7 @@ unsigned char Uart_ReadData(void) {
     return UDR0;
 }
 
+//loops over the string to send it one character at a time
 void Uart_SendString(const char DataString[]){
     int i;
     for (i=0; DataString[i]; i++)

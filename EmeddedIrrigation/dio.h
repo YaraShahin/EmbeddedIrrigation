@@ -1,4 +1,4 @@
-//dio.h is a c library to configure, read and write digital pins on AVR-based Processor
+//dio.h is a c library to configure, read and write digital pins on AVR-based MCU
 
 //Configure DDR register as input or output for a pin while not overwriting the rest of the pins
 void Dio_SetPinDirection(unsigned char Port, unsigned char Pin, unsigned char Direction);

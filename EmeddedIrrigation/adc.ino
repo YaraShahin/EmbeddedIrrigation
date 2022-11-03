@@ -2,7 +2,9 @@
 
 void Adc_Init(void)
 {
-  ADCSRA = 0;
+    //Turning off the ADC (to reset)
+    ADCSRA = 0;
+
     // AREF = AVcc
     ADMUX = (1<<REFS0);
  
@@ -13,13 +15,9 @@ void Adc_Init(void)
 
 unsigned short Adc_ReadChannel(unsigned char ch)
 {
-ADCSRA = 0;
-    // AREF = AVcc
-    ADMUX = (1<<REFS0);
- 
-    // ADC Enable and prescaler of 128
-    // 16000000/128 = 125000
-    ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
+  //resetting the adc before each reading to prevent interference of two channels at the MUX
+  Adc_Init();
+  
   // select the corresponding channel 0~7
   // ANDing with ’7′ will always keep the value
   // of ‘ch’ between 0 and 7
