@@ -74,6 +74,9 @@ Total Cost: 212 EGP
 | 7-segments display |           5           |          5         |
 | Buzzer             |           5           |          5         |
 
+## Video Demo
+The video demo can be found on: 
+
 ## Schematic diagram
   <img align="center" width="900" height="300" src="/media/EmbeddedIrrigationFun.png">
   <img align="center" width="900" height="500" src="/media/Embedded Irrigation.jpg">
